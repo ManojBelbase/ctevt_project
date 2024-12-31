@@ -3,7 +3,7 @@ import Signup from "./auth/Signup";
 import Layout from "./layout/Layout";
 import Home from "./pages/Home";
 import Login from "./auth/Login";
-import GetAllUsers from "./auth/getAllUsers";
+import GetAllUsers from "./Components/users/GetAllUsers";
 import About from "./pages/About";
 
 const App = () => {
@@ -14,7 +14,6 @@ const App = () => {
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/getAllUser" element={<GetAllUsers />} />
       </Route>
     </Routes>
   );

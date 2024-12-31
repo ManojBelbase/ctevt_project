@@ -103,7 +103,6 @@ const Signup = () => {
               },
             }
           );
-          console.log("Success:", response.data);
           navigate("/login");
         } catch (error) {
           console.error("Error:", error);
@@ -490,13 +489,11 @@ const Signup = () => {
             )}
           </div>
 
-          {/* Other form fields go here */}
-
           <div className="mb-4">
             <button
               type="submit"
               className="w-full p-2 bg-blue-500 text-white rounded"
-              disabled={isLoading} // Disable button while loading
+              disabled={isLoading}
             >
               {isLoading ? "Submitting..." : "Submit"}
             </button>

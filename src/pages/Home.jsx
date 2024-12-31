@@ -1,5 +1,5 @@
 import React from "react";
-import GetAllUsers from "../auth/getAllUsers";
+import GetAllUsers from "../Components/users/GetAllUsers";
 
 const Home = () => {
   return (
