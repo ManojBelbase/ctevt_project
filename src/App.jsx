@@ -3,10 +3,13 @@ import Signup from "./auth/Signup";
 import Layout from "./layout/Layout";
 import Home from "./pages/Home";
 import Login from "./auth/Login";
-import GetAllUsers from "./Components/users/GetAllUsers";
 import About from "./pages/About";
+import AuthContext from "./context/AuthContext";
+import { useContext } from "react";
 
 const App = () => {
+  const { name } = useContext(AuthContext);
+  console.log(name);
   return (
     <Routes className="text-3xl font-bold underline">
       <Route path="/signup" element={<Signup />} />

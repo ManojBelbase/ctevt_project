@@ -1,12 +1,13 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
 
 const Login = () => {
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const { formData, setFormData, loginForm } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -20,27 +21,12 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post(
-        "http://62.72.42.129:7777/api/v1/en/user/login",
-        formData
-      );
-
-      if (response.data?.token) {
-        console.log("Login successfully");
-
-        const token = response.data.token;
-        localStorage.setItem("authToken", token);
-
-        console.log("Token saved in localStorage:", token);
-
-        alert("Logged in successfully!");
-        navigate("/");
-        window.location.reload();
-      } else {
-        setError("No token received. Please try again.");
-      }
+      await loginForm();
+      alert("Logged in successfully!");
+      navigate("/");
+      window.location.reload();
     } catch (err) {
-      setError(err.response?.data?.message || "Something went wrong!");
+      setError(err.message || "Something went wrong!");
     } finally {
       setLoading(false);
     }
