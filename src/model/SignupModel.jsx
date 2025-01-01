@@ -70,17 +70,32 @@ export const initialValues = {
   payrollType: "",
 };
 
+export const RoleEnum = Object.freeze({
+  ADMIN: "ADMIN",
+  SUPERADMIN: "SUPERADMIN",
+  STUDENT: "STUDENT",
+  TEACHER: "TEACHER",
+  ACCOUNTANT: "ACCOUNTANT",
+  PARENT: "PARENT",
+});
+
+export const GenderEnum = Object.freeze({
+  MALE: "MALE",
+  FEMALE: "FEMALE",
+  OTHER: "OTHER",
+});
+
 export const signupFormField = [
   { name: "name", placeholder: "Full Name" },
   { name: "email", placeholder: "Email Address" },
   { name: "password", placeholder: "Password" },
   { name: "phone", placeholder: "Phone Number" },
   { name: "dob", placeholder: "Date of Birth (YYYY-MM-DD)" },
-  { name: "gender", placeholder: "Gender" },
+  { name: "gender", placeholder: "Gender", enum: GenderEnum },
   { name: "bloodGroup", placeholder: "Blood Group" },
   { name: "religion", placeholder: "Religion" },
   { name: "motherTongue", placeholder: "Mother Tongue" },
-  { name: "role", placeholder: "Role" },
+  { name: "role", placeholder: "Role", enum: RoleEnum },
   { name: "paddress", placeholder: "Permanent Address" },
   { name: "taddress", placeholder: "Temporary Address" },
   { name: "admissionNo", placeholder: "Admission Number" },

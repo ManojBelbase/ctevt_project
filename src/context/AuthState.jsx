@@ -15,19 +15,13 @@ const AuthState = ({ children }) => {
       if (response.data?.token) {
         console.log("Login successfully");
         const token = response.data.token;
-        localStorage.setItem("token", token);
-        console.log("Token saved in localStorage:", token);
+        localStorage.setItem("authToken", token);
       } else {
         console.log("No token received.");
       }
     } catch (error) {
       console.error(error.response?.data?.message || "Something went wrong!");
     }
-  };
-
-  const signupForm = async () => {
-    try {
-    } catch (error) {}
   };
 
   return (
